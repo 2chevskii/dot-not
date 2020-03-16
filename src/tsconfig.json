@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "outDir": "../build/src/",
+        "rootDir": "./",
+        "tsBuildInfoFile": "../build/src/tsbuildinfo.json",
+        "declaration": true,
+        "declarationDir": "../build/src/typings/"
+    },
+    "extends": "../tsconfig.base.json"
+}
