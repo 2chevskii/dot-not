@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
-import splitDottedPath from './parser';
-import helpers from './helpers';
+import splitDottedPath from '../helpers/parser';
+import helpers from '../helpers/helpers';
 
 const {
     isObject,
