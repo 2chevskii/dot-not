@@ -4,7 +4,7 @@ function splitDottedPath(dottedPath: string): string[] {
     const propParts = new Array<string>();
     let currentPart = '';
     const savePart = () => {
-        if (currentPart.length > 0) {
+        if (currentPart.length > 0 && ![...currentPart].every(char => char === ' ')) {
             propParts.push(currentPart);
             currentPart = '';
         }
