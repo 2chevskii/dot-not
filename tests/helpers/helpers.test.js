@@ -28,5 +28,6 @@ describe('Helpers tests:', () => {
         assume(isObject('{}')).is.false();
         assume(isObject(559)).is.false();
         assume(isObject(/.*/gmi)).is.false();
+        assume(isObject(function () { })).is.false();
     });
 });

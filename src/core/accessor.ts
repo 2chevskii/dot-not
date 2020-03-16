@@ -8,31 +8,29 @@ const {
     isArrayKey
 } = helpers;
 
-function setValue(object: object, path: string, value: any) {
+function setValue(object: any, path: string, value: any) {
     const pathParts = splitDottedPath(path);
 
-    if (pathParts.length < 1) {
-        return value;
+    if (pathParts.length > 0) {
+        const setObjectProp = (obj, index) => {
+            const partName = pathParts[index];
+
+            if (index === pathParts.length - 1) {
+                obj[partName] = value;
+                return obj;
+            }
+
+            if (!isObject(obj[partName])) {
+                obj[partName] = {};
+            }
+
+            return setObjectProp(obj[partName], index + 1);
+        };
+
+        if (!isObject(object)) object = {};
+
+        setObjectProp(object, 0);
     }
-
-    const setObjectProp = (obj, index) => {
-        const partName = pathParts[index];
-
-        if (index === pathParts.length - 1) {
-            obj[partName] = value;
-            return obj;
-        }
-
-        if (!isObject(obj[partName])) {
-            obj[partName] = {};
-        }
-
-        return setObjectProp(obj[partName], index + 1);
-    };
-
-    if (!isObject(object)) object = {};
-
-    setObjectProp(object, 0);
 
     return object;
 }
