@@ -1,4 +1,4 @@
-/* eslint-disable prefer-arrow-callback, func-names, no-new-object */
+/* eslint-disable no-new-object */
 import { describe, it } from 'mocha';
 import assume from 'assume';
 import helpers from '../../src/helpers/helpers';
