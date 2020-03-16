@@ -1,0 +1,23 @@
+## unnecessary folders
+src/
+node_modules/
+.vscode/
+tests/
+build/
+
+## config files
+.eslintrc.json
+tsconfig.json
+tsconfig.base.json
+
+## informational files
+package-lock.json
+test-result.log
+
+## 'ignore' files
+.npmignore
+.gitignore
+.eslintignore
+
+## build script
+build.ps1

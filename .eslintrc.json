@@ -1,0 +1,97 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true,
+        "node": true
+    },
+    "extends": [
+        "airbnb-base",
+        "airbnb-typescript/base"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": 2019,
+        "sourceType": "module",
+        "project": [
+            "src/tsconfig.json",
+            "tests/tsconfig.json"
+        ]
+    },
+    "plugins": [
+        "@typescript-eslint",
+        "import"
+    ],
+    "rules": {
+        "indent": "off",
+        "arrow-parens": [
+            "error",
+            "as-needed"
+        ],
+        "key-spacing": [
+            "error",
+            {
+                "singleLine": {
+                    "beforeColon": false,
+                    "afterColon": true,
+                    "mode": "strict"
+                },
+                "multiLine": {
+                    "beforeColon": false,
+                    "afterColon": true,
+                    "mode": "strict",
+                    "align": "colon"
+                }
+            }
+        ],
+        "comma-dangle": [
+            "error",
+            "never"
+        ],
+        "brace-style": "off",
+        "no-unused-vars": "off",
+        "no-multiple-empty-lines": [
+            "error",
+            {
+                "max": 1,
+                "maxBOF": 0,
+                "maxEOF": 1
+            }
+        ],
+        "no-plusplus": "off",
+        "no-continue": "off",
+        "@typescript-eslint/no-unused-vars": "warn",
+        "@typescript-eslint/no-unused-vars-experimental": "off",
+        "@typescript-eslint/indent": [
+            "error",
+            4,
+            {
+                "MemberExpression": 0
+            }
+        ],
+        "@typescript-eslint/type-annotation-spacing": [
+            "error",
+            {
+                "before": false,
+                "after": true
+            }
+        ],
+        "@typescript-eslint/brace-style": [
+            "error",
+            "1tbs",
+            {
+                "allowSingleLine": true
+            }
+        ],
+        "@typescript-eslint/array-type": [
+            "error",
+            {
+                "default": "array",
+                "readonly": "array"
+            }
+        ]
+    }
+}

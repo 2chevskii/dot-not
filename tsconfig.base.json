@@ -1,0 +1,64 @@
+{
+    "compilerOptions": {
+        // Enable javascript in the project
+        "allowJs": true,
+        "checkJs": true,
+        // Import handling
+        "allowSyntheticDefaultImports": true,
+        "allowUmdGlobalAccess": false,
+        "esModuleInterop": true,
+        // Treat unused as errors
+        "allowUnreachableCode": false,
+        "allowUnusedLabels": false,
+        "noUnusedLocals": false,
+        "noUnusedParameters": false,
+        // Strict options for less error-prone code
+        "alwaysStrict": true,
+        "keyofStringsOnly": false,
+        "noImplicitUseStrict": false,
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitAny": false,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "noStrictGenericChecks": false,
+        "strict": true,
+        "strictBindCallApply": true,
+        "strictFunctionTypes": true,
+        "strictNullChecks": true,
+        "strictPropertyInitialization": true,
+        "suppressExcessPropertyErrors": false,
+        "suppressImplicitAnyIndexErrors": false,
+        // General
+        "charset": "utf8",
+        "disableSizeLimit": true,
+        "emitBOM": false,
+        "noErrorTruncation": true,
+        "noEmitOnError": true,
+        "preserveSymlinks": false,
+        "preserveWatchOutput": false,
+        "pretty": true,
+        // Features
+        "downlevelIteration": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "forceConsistentCasingInFileNames": true,
+        "importHelpers": true,
+        "importsNotUsedAsValues": "preserve",
+        "newLine": "lf",
+        "noEmitHelpers": false,
+        "preserveConstEnums": true,
+        "noResolve": false,
+        "removeComments": false,
+        "resolveJsonModule": true,
+        "stripInternal": true,
+        "useDefineForClassFields": false,
+        // Build options
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "target": "es2018",
+        "composite": true
+    },
+    "typeAcquisition": {
+        "enable": true
+    }
+}

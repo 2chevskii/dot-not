@@ -1,0 +1,13 @@
+## build folders
+lib/
+build/
+
+## informational files
+package-lock.json
+test-result.log
+
+## external modules
+node_modules/
+
+## vscode folder
+.vscode/

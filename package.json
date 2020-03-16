@@ -1,0 +1,71 @@
+{
+    "name": "dot-not",
+    "description": "",
+    "author": "2CHEVSKII",
+    "version": "0.1.0",
+    "license": "MIT",
+    "homepage": "https://github.com/2chevskii/persistence#readme",
+    "readme": "README.md",
+    "icon": "logo.png",
+    "contributors": [
+        "2CHEVSKII"
+    ],
+    "maintainers": [
+        "2CHEVSKII"
+    ],
+    "bugs": {
+        "email": "2chevskii.business@inbox.ru",
+        "url": "https://github.com/2chevskii/persistence/issues"
+    },
+    "type": "commonjs",
+    "main": "lib/index.js",
+    "types": "lib/typings/index.d.ts",
+    "keywords": [
+        "discord",
+        "util",
+        "command",
+        "message",
+        "guild",
+        "server",
+        "bot",
+        "client",
+        "response"
+    ],
+    "engines": {
+        "node": ">=12.0.0"
+    },
+    "markdown": "github",
+    "private": false,
+    "repository": {
+        "type": "github",
+        "url": "git://github.com/2chevskii/persistence.git"
+    },
+    "scripts": {
+        "build": "tsc -b -v tsconfig.json",
+        "build:pwsh": "pwsh build.ps1 -clearout",
+        "build:pwsh-notest": "pwsh build.ps1 -notest",
+        "build:tests-only": "tsc -b -v tests/tsconfig.json",
+        "build:lib-only": "tsc -b -v src/tsconfig.json",
+        "build:no-tslib": "npm run build -- --importHelpers false",
+        "test": "(mocha --check-leaks -s 5 --recursive build/tests/ && echo [%time%] success >> test-result.log) || echo [%time%] fail >> test-result.log",
+        "pretest": "npm run build && npm run lint",
+        "lint": "eslint ."
+    },
+    "dependencies": {
+        "discord.js": "^12.0.2"
+    },
+    "devDependencies": {
+        "@types/mocha": "^7.0.2",
+        "@types/node": "^13.9.1",
+        "@typescript-eslint/eslint-plugin": "^2.23.0",
+        "@typescript-eslint/parser": "^2.23.0",
+        "assume": "^2.2.0",
+        "eslint": "^6.8.0",
+        "eslint-config-airbnb-base": "^14.1.0",
+        "eslint-config-airbnb-typescript": "^7.0.0",
+        "eslint-plugin-import": "^2.20.1",
+        "mocha": "^7.1.0",
+        "tslib": "^1.11.1",
+        "typescript": "^3.8.3"
+    }
+}
