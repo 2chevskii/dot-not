@@ -1,7 +1,7 @@
 function splitDottedPath(dottedPath: string): string[] {
     const escapeChar = '\\';
     const dotChar = '.';
-    const propParts = new Array();
+    const propParts = new Array<string>();
     let currentPart = '';
     const savePart = () => {
         if (currentPart.length > 0) {
