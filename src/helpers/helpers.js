@@ -11,7 +11,7 @@ function isArray(object) {
 }
 
 function isArrayKey(propName) {
-    return [...propName].every(char => char >= 0 && char <= 9);
+    return propName.length > 0 && [...propName].every(char => char !== ' ' && char >= 0 && char <= 9);
 }
 
 export default {
