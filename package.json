@@ -1,6 +1,6 @@
 {
     "name": "dot-not",
-    "description": "",
+    "description": "Have fun using dot notation with this lib",
     "author": "2CHEVSKII",
     "version": "0.1.0",
     "license": "MIT",
@@ -37,9 +37,6 @@
         "remove",
         "add"
     ],
-    "engines": {
-        "node": ">=12.0.0"
-    },
     "markdown": "github",
     "private": false,
     "repository": {
