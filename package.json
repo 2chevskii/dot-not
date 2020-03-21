@@ -44,7 +44,7 @@
         "url": "git://github.com/2chevskii/dot-not.git"
     },
     "scripts": {
-        "build": "pwsh ./build.ps1",
+        "build": "pwsh build.ps1",
         "build:project": "tsc -b -v tsconfig.json",
         "compile:tests": "tsc -p tests/tsconfig.json",
         "compile:lib": "tsc -p src/tsconfig.json",
