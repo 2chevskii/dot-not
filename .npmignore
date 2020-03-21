@@ -12,7 +12,6 @@ tsconfig.base.json
 
 ## informational files
 package-lock.json
-test-result.log
 
 ## 'ignore' files
 .npmignore

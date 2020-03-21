@@ -44,28 +44,27 @@
         "url": "git://github.com/2chevskii/dot-not.git"
     },
     "scripts": {
-        "build": "tsc -b -v tsconfig.json",
-        "build:pwsh": "pwsh build.ps1 -clearout",
-        "build:pwsh-notest": "pwsh build.ps1 -notest",
-        "build:tests-only": "tsc -b -v tests/tsconfig.json",
-        "build:lib-only": "tsc -b -v src/tsconfig.json",
-        "build:no-tslib": "npm run build -- --importHelpers false",
-        "test": "(mocha --check-leaks -s 5 --recursive build/tests/ && echo [%time%] success >> test-result.log) || echo [%time%] fail >> test-result.log",
-        "pretest": "npm run build && npm run lint",
+        "build": "pwsh ./build.ps1",
+        "build:project": "tsc -b -v tsconfig.json",
+        "compile:tests": "tsc -p tests/tsconfig.json",
+        "compile:lib": "tsc -p src/tsconfig.json",
+        "compile:lib-no-tslib": "npm run compile:lib -- --importHelpers false",
+        "test": "mocha --check-leaks -s 5 --recursive build/tests/",
+        "pretest": "npm run build:project && npm run lint",
         "lint": "eslint ."
     },
     "dependencies": {},
     "devDependencies": {
         "@types/mocha": "^7.0.2",
-        "@types/node": "^13.9.1",
+        "@types/node": "^13.9.2",
         "@typescript-eslint/eslint-plugin": "^2.23.0",
         "@typescript-eslint/parser": "^2.23.0",
         "assume": "^2.2.0",
         "eslint": "^6.8.0",
         "eslint-config-airbnb-base": "^14.1.0",
-        "eslint-config-airbnb-typescript": "^7.0.0",
+        "eslint-config-airbnb-typescript": "^7.2.0",
         "eslint-plugin-import": "^2.20.1",
-        "mocha": "^7.1.0",
+        "mocha": "^7.1.1",
         "tslib": "^1.11.1",
         "typescript": "^3.8.3"
     }
