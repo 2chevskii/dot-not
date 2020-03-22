@@ -1,71 +1,73 @@
 {
-    "name": "dot-not",
-    "description": "Have fun using dot notation with this lib",
-    "author": "2CHEVSKII",
-    "version": "0.1.0",
-    "license": "MIT",
-    "homepage": "https://github.com/2chevskii/dot-not#readme",
-    "readme": "README.md",
-    "icon": "logo.png",
-    "contributors": [
-        "2CHEVSKII"
-    ],
-    "maintainers": [
-        "2CHEVSKII"
-    ],
-    "bugs": {
-        "email": "2chevskii.business@inbox.ru",
-        "url": "https://github.com/2chevskii/dot-not/issues"
-    },
-    "type": "commonjs",
-    "main": "lib/index.js",
-    "types": "lib/typings/index.d.ts",
-    "keywords": [
-        "object",
-        "prop",
-        "property",
-        "dot",
-        "path",
-        "get",
-        "set",
-        "delete",
-        "access",
-        "notation",
-        "dotty",
-        "read",
-        "write",
-        "remove",
-        "add"
-    ],
-    "markdown": "github",
-    "private": false,
-    "repository": {
-        "type": "github",
-        "url": "git://github.com/2chevskii/dot-not.git"
-    },
-    "scripts": {
-        "build": "pwsh build.ps1 -ErrorAction Stop",
-        "build:project": "tsc -b -v tsconfig.json",
-        "compile:tests": "tsc -p tests/tsconfig.json",
-        "compile:lib": "tsc -p src/tsconfig.json",
-        "test": "mocha --check-leaks -s 5 --recursive build/tests/",
-        "pretest": "npm run lint && npm run build:project",
-        "lint": "eslint --color --format codeframe .",
-        "lint:fix": "npm run lint -- --fix"
-    },
-    "dependencies": {},
-    "devDependencies": {
-        "@types/mocha": "^7.0.2",
-        "@types/node": "^13.9.2",
-        "@typescript-eslint/eslint-plugin": "^2.23.0",
-        "@typescript-eslint/parser": "^2.23.0",
-        "assume": "^2.2.0",
-        "eslint": "^6.8.0",
-        "eslint-config-airbnb-base": "^14.1.0",
-        "eslint-config-airbnb-typescript": "^7.2.0",
-        "eslint-plugin-import": "^2.20.1",
-        "mocha": "^7.1.1",
-        "tslib": "^1.11.1",
-        "typescript": "^3.8.3"
-    }
+  "name": "dot-not",
+  "description": "Have fun using dot notation with this lib",
+  "author": "2CHEVSKII",
+  "version": "0.1.0",
+  "license": "MIT",
+  "homepage": "https://github.com/2chevskii/dot-not#readme",
+  "readme": "README.md",
+  "icon": "logo.png",
+  "contributors": [
+    "2CHEVSKII"
+  ],
+  "maintainers": [
+    "2CHEVSKII"
+  ],
+  "bugs": {
+    "email": "2chevskii.business@inbox.ru",
+    "url": "https://github.com/2chevskii/dot-not/issues"
+  },
+  "type": "commonjs",
+  "main": "lib/index.js",
+  "types": "lib/typings/index.d.ts",
+  "keywords": [
+    "object",
+    "prop",
+    "property",
+    "dot",
+    "path",
+    "get",
+    "set",
+    "delete",
+    "access",
+    "notation",
+    "dotty",
+    "read",
+    "write",
+    "remove",
+    "add"
+  ],
+  "markdown": "github",
+  "private": false,
+  "repository": {
+    "type": "github",
+    "url": "git://github.com/2chevskii/dot-not.git"
+  },
+  "scripts": {
+    "build": "pwsh build.ps1 -ErrorAction Stop",
+    "build:project": "tsc -b -v tsconfig.json",
+    "compile:tests": "tsc -p tests/tsconfig.json",
+    "compile:lib": "tsc -p src/tsconfig.json",
+    "test": "mocha --check-leaks -s 5 --recursive build/tests/",
+    "pretest": "npm run lint && npm run build:project",
+    "lint": "eslint --color --format codeframe .",
+    "lint:fix": "npm run lint -- --fix"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^13.9.2",
+    "@typescript-eslint/eslint-plugin": "^2.23.0",
+    "@typescript-eslint/parser": "^2.23.0",
+    "assume": "^2.2.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-config-airbnb-typescript": "^7.2.0",
+    "eslint-plugin-import": "^2.20.1",
+    "mocha": "^7.1.1",
+    "tslib": "^1.11.1",
+    "typescript": "^3.8.3"
+  },
+  "buildHash": "21b0720771ebfd19660e431d4d85268d",
+  "buildNum": 1
 }
