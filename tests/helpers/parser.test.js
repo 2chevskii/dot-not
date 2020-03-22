@@ -15,7 +15,13 @@ describe('Parser tests:', function () {
         assume(parse('   .foo. .bar..\\..baz')).eql(['   ', 'foo', ' ', 'bar', '', '.', 'baz']);
     });
 
-    it("- Parse empty path :: '' -> [ '' ]", function () {
+    it("- Parse empty path :: '' -> [ '' ]; ' ' -> [ ' ' ]", function () {
         assume(parse('')).eql(['']);
+        assume(parse(' ')).eql([' ']);
+    });
+
+    it("- Parse nested empty path :: '.' -> [ '', '' ]; ' .' -> [ ' ', '' ]", function () {
+        assume(parse('.')).eql(['', '']);
+        assume(parse(' .')).eql([' ', '']);
     });
 });
