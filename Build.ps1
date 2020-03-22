@@ -97,11 +97,11 @@ Write-Output "Running mocha tests ..."
 
 ## Running tests directly instead of 'npm run test' to skip pretest hook unnecessary here
 
-# $code = Run-Script 'test'
+$code = Run-Script 'test'
 
-# if ($code -ne 0) {
-#     throw "Failed to test project! ($code)"
-# }
+if ($code -ne 0) {
+    throw "Failed to test project! ($code)"
+}
 
 Write-Output "Computing file hash ..."
 
