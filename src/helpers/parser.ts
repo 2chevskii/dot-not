@@ -43,23 +43,33 @@ function parseDotPath(path: string): string[] {
     let currentPart = '';
 
     const savePart = () => {
-        if (currentPart.length <= 0) return;
-
         result.push(currentPart);
         currentPart = '';
     };
 
     for (let i = 0; i < path.length; i++) {
-        const currentChar = path[i];
-        const nextChar = path[i + 1];
+        const current = path[i];
+        const next = path[i + 1];
 
-        if (currentChar === escapeChar && (nextChar === escapeChar || nextChar === dotChar)) {
-            currentPart += nextChar;
-            i++;
-        } else if (currentChar === dotChar) savePart(); else currentPart += currentChar;
+        switch (current) {
+        case escapeChar:
+            if (next === escapeChar || next === dotChar) {
+                currentPart += next;
+                i++;
+            } else {
+                currentPart += current;
+            }
+            break;
+        case dotChar:
+            savePart();
+            break;
+        default:
+            currentPart += current;
+            break;
+        }
+
+        if (!next) savePart();
     }
-
-    savePart();
 
     return result;
 }

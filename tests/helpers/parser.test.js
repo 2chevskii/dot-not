@@ -8,10 +8,10 @@ describe('Parser tests:', function () {
     });
 
     it("- Parse escaped path :: 'foo\\.bar.\\\\.baz\\.\\..42' -> [ foo.bar, \\.baz.., 42]", function () {
-        assume(parse('foo\\.bar.\\\\.baz\\.\\..42')).eql(['foo.bar', '\\.baz..', '42']);
+        assume(parse('foo\\.bar.\\\\.baz\\.\\..42')).eql(['foo.bar', '\\', 'baz..', '42']);
     });
 
-    it("- Parse unusual path :: '   .foo. .bar..\\..baz' -> [ '   ', foo, ' ', bar, '', '', '', baz ]", function () {
+    it("- Parse unusual path :: '   .foo. .bar..\\..baz' -> [ '   ', foo, ' ', bar, '', '.', baz ]", function () {
         assume(parse('   .foo. .bar..\\..baz')).eql(['   ', 'foo', ' ', 'bar', '', '.', 'baz']);
     });
 });
