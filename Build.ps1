@@ -148,6 +148,6 @@ $distr_dir = $package_json.main | Split-Path -Parent
 
 Write-Output "Copying files to the distribution directory: $distr_dir"
 
-Get-ChildItem $OutFolder -Exclude 'tsbuildinfo.json' -Recurse | Copy-Item -Destination $distr_dir -Force
+Copy-Item -path $OutFolder -Destination $distr_dir -Force -Recurse -Exclude 'tsbuildinfo.json'
 
 Write-PackageJson
