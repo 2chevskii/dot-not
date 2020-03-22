@@ -21,9 +21,13 @@ describe('Set value tests:', function () {
         assume(setValue(null, 'foo.bar', 'baz')).eql({ foo: { bar: 'baz' } });
     });
 
-    it('- Do not set values for incorrect paths', function () {
+    it('- Do not set values for incorrect paths', function () { // wrong test description
         assume(setValue(null, '..', 'hello')).eq(null);
-        assume(setValue({}, ' . ', 'hello')).eql({});
+        assume(setValue({}, ' . ', 'hello')).eql({
+            ' ': {
+                ' ': 'hello'
+            }
+        });
     });
 });
 
