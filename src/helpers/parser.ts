@@ -39,6 +39,8 @@ const escapeChar = '\\';
 const dotChar = '.';
 
 function parseDotPath(path: string): string[] {
+    if (path.length < 1) return [''];
+
     const result = [] as string[];
     let currentPart = '';
 

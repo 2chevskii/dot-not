@@ -14,4 +14,8 @@ describe('Parser tests:', function () {
     it("- Parse unusual path :: '   .foo. .bar..\\..baz' -> [ '   ', foo, ' ', bar, '', '.', baz ]", function () {
         assume(parse('   .foo. .bar..\\..baz')).eql(['   ', 'foo', ' ', 'bar', '', '.', 'baz']);
     });
+
+    it("- Parse empty path :: '' -> [ '' ]", function () {
+        assume(parse('')).eql(['']);
+    });
 });
