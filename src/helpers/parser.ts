@@ -2,6 +2,8 @@ const escapeChar = '\\';
 const dotChar = '.';
 
 function parseDotPath(path: string): string[] {
+    if (typeof path !== 'string') throw Error('Path must be a string.');
+
     if (path.length < 1) return [''];
 
     const result = [] as string[];
