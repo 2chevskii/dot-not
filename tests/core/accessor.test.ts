@@ -180,7 +180,7 @@ describe('Accessor tests:', function () {
         });
     });
 
-    describe("'copyProperty' tests:", function () {
+    describe("'copyProperty' tests:", function () { // TODO: Test with arrays
         it('- Must copy property from one object to another and return true', function () {
             const source = {
                 hello: {
@@ -189,6 +189,43 @@ describe('Accessor tests:', function () {
                 }
             };
             const target = {};
+
+            assume(copyProperty(source, 'hello.foo', 'number', target)).is.true();
+            assume(target).eql({ number: 42 });
+        });
+
+        it('- Must copy property to self and return true', function () {
+            const sauce = { hello: 'world' };
+
+            assume(copyProperty(sauce, 'hello', 'foo.bar.baz')).is.true();
+            assume(sauce).eql({ hello: 'world', foo: { bar: { baz: 'world' } } });
+        });
+
+        it('- Must return false if there is nothing to copy', function () {
+            assume(copyProperty({}, 'hello', 'world')).is.false();
+        });
+    });
+
+    describe("'moveProperty' tests:", function () {
+        it('- Must move property from one object to another and return true', function () {
+            const s = { s: 't' };
+            const t = { t: 's' };
+
+            assume(moveProperty(s, 's', 'lol.kek', t)).is.true();
+            assume(t).eql({ t: 's', lol: { kek: 't' } });
+        });
+
+        it('- Must move self property and return true', function () {
+            const daobject = { propertyToMove: 998889 };
+
+            assume(moveProperty(daobject, 'propertyToMove', 'anotherproperty')).is.true();
+            assume(daobject).eql({ anotherproperty: 998889 });
+        });
+
+        it('- Must return false when prop is not present in the object that was passed into the function when calling it', function () {
+            const object = { existing_prop: 'exists' };
+
+            assume(moveProperty(object, 'unexisting_prop', 'target.path\\.that.won.t.be\\\\.reached', {})).is.false();
         });
     });
 });
