@@ -30,22 +30,41 @@ function setValue(object: object, path: string, value: any, force: boolean = tru
 
     const set = (i, obj) => {
         const part = parts[i];
+
         if (i === parts.length - 1) {
             obj[part] = value;
-        } else if (isObject(obj[part]) || (isArray(obj[part]) && isArrayKey(part))) {
+            return true;
+        } if (isObject(obj[part]) || (isArray(obj[part]) && isArrayKey(parts[i + 1]))) {
             return set(i + 1, obj[part]);
-        } else if (obj[part] === undefined || force) {
+        } if (obj[part] === undefined || force) {
             obj[part] = {};
             return set(i + 1, obj[part]);
-        }
-
-        return object;
+        } return false;
     };
 
     return set(0, object);
 }
 
+function getValue(object: object, path: string, defaultValue?: any) {
+    const parts = parsePath(path);
+
+    const get = (i, obj) => {
+        const part = parts[i];
+
+        if ((isObject(obj) || isArray(obj)) && part in obj) {
+            if (i === parts.length - 1) return obj[part];
+            return get(i + 1, obj[part]);
+        } if (defaultValue !== undefined) {
+            setValue(object, path, defaultValue, true);
+            return defaultValue;
+        } return undefined;
+    };
+
+    return get(0, object);
+}
+
 export default {
     hasValue,
-    setValue
+    setValue,
+    getValue
 };
