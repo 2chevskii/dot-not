@@ -5,8 +5,7 @@ import helpers from '../helpers/helpers';
 const {
     isObject,
     isArray,
-    isArrayKey,
-    isPathValid
+    isArrayKey
 } = helpers;
 
 function hasValue(object: object, path: string, type?: string): boolean {
