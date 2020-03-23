@@ -5,10 +5,11 @@ import helpers from '../helpers/helpers';
 const {
     isObject,
     isArray,
-    isArrayKey
+    isArrayKey,
+    isPathValid
 } = helpers;
 
-function hasValue(object: object, path: string, type?: string) {
+function hasValue(object: object, path: string, type?: string): boolean {
     const parts = parsePath(path);
 
     const has = (i, obj) => {
@@ -25,7 +26,7 @@ function hasValue(object: object, path: string, type?: string) {
     return has(0, object);
 }
 
-function setValue(object: object, path: string, value: any, force: boolean = true) {
+function setValue(object: object, path: string, value: any, force: boolean = true): boolean {
     const parts = parsePath(path);
 
     const set = (i, obj) => {
@@ -45,7 +46,7 @@ function setValue(object: object, path: string, value: any, force: boolean = tru
     return set(0, object);
 }
 
-function getValue(object: object, path: string, defaultValue?: any) {
+function getValue(object: object, path: string, defaultValue?: any): any {
     const parts = parsePath(path);
 
     const get = (i, obj) => {
@@ -63,8 +64,69 @@ function getValue(object: object, path: string, defaultValue?: any) {
     return get(0, object);
 }
 
+function removeProperty(object: object, path: string): boolean {
+    const parts = parsePath(path);
+
+    const remove = (i, obj) => {
+        const part = parts[i];
+
+        if ((!isObject(obj) && !(isArray(obj) && isArrayKey(part))) || !(part in obj)) return false;
+
+        if (i === parts.length - 1) return delete obj[part];
+
+        return remove(i + 1, obj[part]);
+    };
+
+    return remove(0, object);
+}
+
+function copyProperty(sourceObject: object, sourcePath: string, targetPath: string): boolean;
+function copyProperty(
+    sourceObject: object,
+    sourcePath: string,
+    targetPath: string,
+    targetObject: object
+): boolean;
+function copyProperty(
+    sourceObject: object,
+    sourcePath: string,
+    targetPath: string,
+    targetObject?: object
+): boolean {
+    if (!targetObject) targetObject = sourceObject;
+
+    if (!hasValue(sourceObject, sourcePath)) return false;
+
+    const value = getValue(sourceObject, sourcePath);
+
+    return setValue(targetObject, targetPath, value);
+}
+
+function moveProperty(sourceObject: object, sourcePath: string, targetPath: string): boolean;
+function moveProperty(
+    sourceObject: object,
+    sourcePath: string,
+    targetPath: string,
+    targetObject: object
+): boolean;
+function moveProperty(
+    sourceObject: object,
+    sourcePath: string,
+    targetPath: string,
+    targetObject?: object
+): boolean {
+    if (!targetObject) targetObject = sourceObject;
+
+    if (!copyProperty(sourceObject, sourcePath, targetPath, targetObject)) return false;
+
+    return removeProperty(sourceObject, sourcePath);
+}
+
 export default {
     hasValue,
     setValue,
-    getValue
+    getValue,
+    removeProperty,
+    copyProperty,
+    moveProperty
 };
