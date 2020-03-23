@@ -11,10 +11,6 @@ const {
 function hasValue(object: object, path: string, type?: string) {
     const parts = parsePath(path);
 
-    if (!isArray(object) && !isObject(object)) {
-        throw new Error('First argument must be either object or array.');
-    }
-
     const has = (i, obj) => {
         const part = parts[i];
 
@@ -29,4 +25,27 @@ function hasValue(object: object, path: string, type?: string) {
     return has(0, object);
 }
 
-export default hasValue;
+function setValue(object: object, path: string, value: any, force: boolean = true) {
+    const parts = parsePath(path);
+
+    const set = (i, obj) => {
+        const part = parts[i];
+        if (i === parts.length - 1) {
+            obj[part] = value;
+        } else if (isObject(obj[part]) || (isArray(obj[part]) && isArrayKey(part))) {
+            return set(i + 1, obj[part]);
+        } else if (obj[part] === undefined || force) {
+            obj[part] = {};
+            return set(i + 1, obj[part]);
+        }
+
+        return object;
+    };
+
+    return set(0, object);
+}
+
+export default {
+    hasValue,
+    setValue
+};
