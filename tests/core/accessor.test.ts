@@ -1,42 +1,55 @@
-// import { describe, it } from 'mocha';
-// import assume from 'assume';
-// import accessor from '../../src/core/accessor';
+import { describe, it } from 'mocha';
+import assume from 'assume';
+import hasValue from '../../src/core/accessor';
 
-// const { getValue, setValue } = accessor;
+describe('Accessor tests:', function () {
+    describe("'hasValue' tests:", function () {
+        it('- Must return true if object contains prop (any type)', function () {
+            assume(hasValue({ hello: 'world' }, 'hello')).is.true();
+            assume(hasValue({
+                foo: {
+                    bar: {
+                        baz: 42
+                    },
+                    hello: 'world'
+                }
+            }, 'foo.bar.baz')).is.true();
+        });
 
-// describe('Set value tests:', function () {
-//     it('- Properly set value for correct path', function () {
-//         assume(setValue({}, 'foo.bar', 'baz')).eql({ foo: { bar: 'baz' } });
-//     });
+        it('- Must return true if object contains prop (strict type)', function () {
+            assume(hasValue({ hello: 'world' }, 'hello', 'string')).is.true();
+            assume(hasValue({
+                foo: {
+                    bar: {
+                        baz: 42
+                    },
+                    hello: 'world'
+                }
+            }, 'foo.bar.baz', 'number')).is.true();
+        });
 
-//     it('- Properly set value for escaped path', function () {
-//         assume(setValue({}, 'foo\\.bar', 'baz')).eql({ 'foo.bar': 'baz' });
-//     });
+        it('- Must return false if object contains prop, but the type is wrong', function () {
+            assume(hasValue({ hello: 'world' }, 'hello', 'object')).is.false();
+            assume(hasValue({
+                foo: {
+                    bar: {
+                        baz: 42
+                    },
+                    hello: 'world'
+                }
+            }, 'foo.bar.baz', 'string')).is.false();
+        });
 
-//     it('- Properly set value for partially incorrect path', function () {
-//         assume(setValue({}, 'foo....bar', 'baz')).eql({ foo: { bar: 'baz' } });
-//     });
+        it('- Must return false if object does not contain prop', function () {
+            assume(hasValue({
+                hi: {
+                    how: 'are.you.doing'
+                }
+            }, 'hi.how.are.you.doing')).is.false();
 
-//     it('- Initialize object from null and set value', function () {
-//         assume(setValue(null, 'foo.bar', 'baz')).eql({ foo: { bar: 'baz' } });
-//     });
-
-//     it('- Do not set values for incorrect paths', function () { // wrong test description
-//         assume(setValue(null, '..', 'hello')).eq(null);
-//         assume(setValue({}, ' . ', 'hello')).eql({
-//             ' ': {
-//                 ' ': 'hello'
-//             }
-//         });
-//     });
-// });
-
-// describe('Get value tests:', function () {
-//     it('- Properly retrieve values from objects', function () {
-//         assume(getValue({
-//             foo: {
-//                 bar: 42
-//             }
-//         }, 'foo.bar')).eq(42);
-//     });
-// });
+            assume(hasValue({
+                foo: 42
+            }, 'foo.42', 'number')).is.false();
+        });
+    });
+});
