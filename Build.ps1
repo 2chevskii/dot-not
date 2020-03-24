@@ -71,6 +71,9 @@ $OutFolder = Join-Path $PSScriptRoot $OutFolder
 Write-Debug "Resolved package.json path to: $PackageJson"
 Write-Debug "Resolved out folder path to: $OutFolder"
 
+Write-Output 'Cleaning output directory ...'
+Remove-Item -Path $OutFolder -Force -ErrorAction SilentlyContinue -Recurse
+
 Write-Output "Reading package.json file from path: $PackageJson ..."
 
 $package_json = Read-PackageJson
@@ -145,6 +148,9 @@ if (!$build_num) {
 Write-Output "Saving package.json to: $PackageJson ..."
 
 $distr_dir = $package_json.main | Split-Path -Parent
+
+Write-Output 'Cleaning distribution directory ...'
+Remove-Item -Path $distr_dir -Recurse -Force -ErrorAction SilentlyContinue
 
 Write-Output "Copying files to the distribution directory: $distr_dir"
 
