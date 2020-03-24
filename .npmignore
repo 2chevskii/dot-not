@@ -18,5 +18,13 @@ package-lock.json
 .gitignore
 .eslintignore
 
-## build script
+## scripts
 build.ps1
+fix-lineendings.ps1
+
+## tarball
+dot-not-*.tgz
+
+## folders unnecessary in the build
+src/
+tests/
