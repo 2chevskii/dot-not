@@ -4,7 +4,8 @@ using namespace System.Security.Cryptography
 [CmdletBinding(SupportsShouldProcess, HelpUri = 'https://github.com/2chevskii/dot-not#building')]
 param (
     [string]$OutFolder = 'build/src/',
-    [string]$PackageJson = 'package.json'
+    [string]$PackageJson = 'package.json',
+    [switch]$NoTSLib
 )
 
 [hashtable]$package_json
@@ -16,7 +17,18 @@ function Read-PackageJson {
 }
 
 function Write-PackageJson {
-    $package_json | ConvertTo-Json | Out-File $PackageJson -Force -Encoding utf8
+    $json = $package_json | ConvertTo-Json
+    # $json = $json.replace("`r`n", "`n")
+    $lines = $json -split "`r`n"
+    for ($i = 0; $i -lt $lines.Length; $i ++ ) {
+        $tabsize = 0
+        while ($lines[$i][$tabsize] -eq ' ') {
+            $tabsize++
+        }
+        $lines[$i] = ' ' * $tabsize + $lines[$i]
+    }
+
+    $lines -join "`n" | Out-File $PackageJson -Force -Encoding utf8
 }
 
 function Compute-BuildHash {
@@ -88,7 +100,13 @@ if ($code -ne 0) {
     throw "Failed to lint project! ($code)"
 }
 
-Write-Output "Compiling project ..."
+## there goes a bunch of crunches, don't worry, will be fixed... maybe
+
+Write-Output "Compiling project $($NoTSLib ? 'without tslib' : '') ..."
+
+if ($NoTSLib) {
+    Run-Script 'compile:lib:no-tslib'
+}
 
 $code = Run-Script 'build:project'
 
