@@ -1,5 +1,7 @@
 # DOT-NOT
 
+[![Logo](logo.png)][repo]
+
 > Another fucking dot notation lib in js?!
 
 ## Installation
