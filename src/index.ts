@@ -1,4 +1,17 @@
 import core from './core/accessor';
-import parseDotPath from './helpers/parser';
+import parse from './helpers/parser';
 
-export default { ...core, parseDotPath };
+export const {
+    hasValue, getValue, setValue, copyProperty, moveProperty, removeProperty
+} = core;
+export const parsePath = parse;
+
+export default {
+    hasValue,
+    getValue,
+    setValue,
+    copyProperty,
+    moveProperty,
+    removeProperty,
+    parsePath
+};

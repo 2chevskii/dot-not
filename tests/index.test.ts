@@ -13,6 +13,6 @@ describe('Common tests of exports:', function () {
         assume(dotnot).contains('hasValue');
         assume(dotnot).contains('copyProperty');
         assume(dotnot).contains('moveProperty');
-        assume(dotnot).contains('parseDotPath');
+        assume(dotnot).contains('parsePath');
     });
 });

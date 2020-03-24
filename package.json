@@ -51,9 +51,12 @@
         "test": "mocha --check-leaks -s 5 --recursive build/tests/",
         "pretest": "npm run lint && npm run build:project",
         "lint": "eslint --color --format codeframe .",
-        "lint:fix": "npm run lint -- --fix"
+        "lint:fix": "npm run lint -- --fix",
+        "prepack": "npm run build"
     },
-    "dependencies": {},
+    "dependencies": {
+        "tslib": "^1.11.1"
+    },
     "devDependencies": {
         "@types/mocha": "^7.0.2",
         "@types/node": "^13.9.3",
@@ -65,9 +68,8 @@
         "eslint-config-airbnb-typescript": "^7.2.0",
         "eslint-plugin-import": "^2.20.1",
         "mocha": "^7.1.1",
-        "tslib": "^1.11.1",
         "typescript": "^3.8.3"
     },
-    "buildHash": "f26f61235868b69bd0790c78083577bb",
-    "buildNum": 15
+    "buildHash": "8a02c057ea569b9b200b8a1fe342ecef",
+    "buildNum": 16
 }
