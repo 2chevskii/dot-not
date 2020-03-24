@@ -1,8 +1,8 @@
 {
     "name": "dot-not",
-    "description": "Have fun using dot notation with this lib",
+    "description": "Dot notation library based on recursion",
     "author": "2CHEVSKII",
-    "version": "0.2.0",
+    "version": "1.0.0",
     "license": "MIT",
     "homepage": "https://github.com/2chevskii/dot-not#readme",
     "readme": "README.md",
@@ -35,7 +35,9 @@
         "read",
         "write",
         "remove",
-        "add"
+        "add",
+        "copy",
+        "move"
     ],
     "markdown": "github",
     "private": false,
