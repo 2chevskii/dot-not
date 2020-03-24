@@ -52,7 +52,7 @@
         "pretest": "npm run lint && npm run build:project",
         "lint": "eslint --color --format codeframe .",
         "lint:fix": "npm run lint -- --fix",
-        "prepack": "npm run build"
+        "prepack": "npm run build && pwsh ./Fix-LineEndings.ps1"
     },
     "dependencies": {
         "tslib": "^1.11.1"
