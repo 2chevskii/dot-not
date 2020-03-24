@@ -1,5 +1,5 @@
 {
-    "name": "dot-not",
+    "name": "@rustworkshop/dot-not",
     "description": "Dot notation library based on recursion",
     "author": {
         "name": "2CHEVSKII",
