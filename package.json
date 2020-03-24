@@ -1,15 +1,16 @@
 {
     "name": "dot-not",
     "description": "Dot notation library based on recursion",
-    "author": "2CHEVSKII",
+    "author": {
+        "name": "2CHEVSKII",
+        "email": "2chevskii.business@inbox.ru",
+        "url": "https://github.com/2chevskii"
+    },
     "version": "1.0.0",
     "license": "MIT",
     "homepage": "https://github.com/2chevskii/dot-not#readme",
     "readme": "README.md",
     "icon": "logo.png",
-    "contributors": [
-        "2CHEVSKII"
-    ],
     "maintainers": [
         "2CHEVSKII"
     ],
