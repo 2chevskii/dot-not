@@ -44,7 +44,7 @@
         "url": "git://github.com/2chevskii/dot-not.git"
     },
     "scripts": {
-        "build": "pwsh build.ps1 -ErrorAction Stop",
+        "build": "pwsh build.ps1 -ErrorAction Stop && pwsh ./Fix-LineEndings.ps1",
         "build:project": "tsc -b -v tsconfig.json",
         "compile:tests": "tsc -p tests/tsconfig.json",
         "compile:lib": "tsc -p src/tsconfig.json",
@@ -52,8 +52,7 @@
         "test": "mocha --check-leaks -s 5 --recursive build/tests/",
         "pretest": "npm run lint && npm run build:project",
         "lint": "eslint --color --format codeframe .",
-        "lint:fix": "npm run lint -- --fix",
-        "prepack": "npm run build && pwsh ./Fix-LineEndings.ps1"
+        "lint:fix": "npm run lint -- --fix"
     },
     "dependencies": {
         "tslib": "^1.11.1"
@@ -71,6 +70,6 @@
         "mocha": "^7.1.1",
         "typescript": "^3.8.3"
     },
-    "buildHash": "913ca609cceedfe44b3c7fce9eedb76d",
-    "buildNum": 21
+    "buildHash": "ee5c84ac20a2541e373b8d143a917113",
+    "buildNum": 22
 }
