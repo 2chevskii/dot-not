@@ -2,7 +2,7 @@
     "name": "dot-not",
     "description": "Have fun using dot notation with this lib",
     "author": "2CHEVSKII",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "license": "MIT",
     "homepage": "https://github.com/2chevskii/dot-not#readme",
     "readme": "README.md",
@@ -48,6 +48,7 @@
         "build:project": "tsc -b -v tsconfig.json",
         "compile:tests": "tsc -p tests/tsconfig.json",
         "compile:lib": "tsc -p src/tsconfig.json",
+        "compile:lib:no-tslib": "npm run compile:lib -- --importHelpers false",
         "test": "mocha --check-leaks -s 5 --recursive build/tests/",
         "pretest": "npm run lint && npm run build:project",
         "lint": "eslint --color --format codeframe .",
@@ -70,6 +71,6 @@
         "mocha": "^7.1.1",
         "typescript": "^3.8.3"
     },
-    "buildHash": "8a02c057ea569b9b200b8a1fe342ecef",
-    "buildNum": 16
+    "buildHash": "913ca609cceedfe44b3c7fce9eedb76d",
+    "buildNum": 21
 }
