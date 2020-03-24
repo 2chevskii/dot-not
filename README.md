@@ -4,18 +4,18 @@
 
 ## Installation
 
-`npm i dot-not`
+`npm i @rustworkshop/dot-not`
 
 ## Usage
 
 ### Import module
 
 ```js
-import dotnot from 'dot-not'
+import dotnot from '@rustworkshop/dot-not'
 // or
-const dotnot = require('dot-not')
+const dotnot = require('@rustworkshop/dot-not')
 // destructure import works properly only in TypeScript (tested in NodeJS/VSCode)
-import { get, set, copy, move, remove, parse } from 'dot-not'
+import { get, set, copy, move, remove, parse } from '@rustworkshop/dot-not'
 ```
 
 ### Paths
