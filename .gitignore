@@ -8,8 +8,8 @@ package-lock.json
 ## external modules
 node_modules/
 
-## vscode folder
-.vscode/
+# ## vscode folder
+# .vscode/
 
 ## tarball
 dot-not-*.tgz

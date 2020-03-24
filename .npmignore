@@ -28,3 +28,4 @@ dot-not-*.tgz
 ## folders unnecessary in the build
 src/
 tests/
+.vscode/
