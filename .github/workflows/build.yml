@@ -34,4 +34,4 @@ jobs:
     - run: echo "Installing dependencies"
     - run: npm install
     - run: echo "Starting build"
-    - run: npm run build
+    - run: pwsh -File ./Build.ps1 -ErrorAction Stop
